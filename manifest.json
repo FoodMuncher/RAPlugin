@@ -1,0 +1,25 @@
+{
+    "name": "Click and Refresh",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["*://ra.co/events/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_title": "Click and Refresh",
+        "default_icon": "icons/bored.png"
+    },
+    "background" : {
+        "scripts": ["background.js"]
+    },
+    "web_accessible_resources": [
+        "audio/notify.mp3",
+        "audio/chilled.mp3"
+    ],
+    "permissions": [
+        "http://localhost:8080/*"
+    ]
+}
