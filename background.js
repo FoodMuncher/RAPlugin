@@ -2,7 +2,9 @@
 var is_active = false;
 var active_tab = null;
 var clicked = false;
-const noiseInterval = 1000
+const noiseInterval = 1000;
+const intervalLowerBound = 3;
+const intervalRange = 5;
 
 // Listener Functions
 
@@ -40,7 +42,8 @@ chrome.runtime.onMessage.addListener(function (request, _sender, _sendResponse) 
     }
 
     if (!request.clicked) {
-        var interval = ((Math.random() * 3) + 5) * 1000;
+const intervalRange = 5;
+        var interval = ((Math.random() * intervalLowerBound) + intervalRange) * 1000;
         console.log(interval);
         setTimeout(() => { triggerRefreshAndCheck(); }, interval);
     } else {
